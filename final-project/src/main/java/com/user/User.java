@@ -5,13 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.userInfo.UserInfo;
+
 import java.io.Serializable;
 
 @Entity
 @Table(name = "login")
 public class User implements Serializable{
+   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid")
@@ -23,9 +28,6 @@ public class User implements Serializable{
 
     public User()
     {
-        super();
-        email = "";
-        pass = "";
     }
 
     public User(int uid, String email, String pass)
@@ -35,6 +37,7 @@ public class User implements Serializable{
         this.email = email;
         this.pass = pass;
     }
+
     public void setId(int id) {
 		this.uid = id;
 	}

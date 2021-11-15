@@ -1,12 +1,11 @@
 package com.user;
 
-import org.hibernate.Hibernate;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import com.data.HibernateUntil;
-import com.user.User;
+
 
 public class UserDAO {
     public static User selectUser(String email)
