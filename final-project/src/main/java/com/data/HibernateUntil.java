@@ -3,10 +3,10 @@ package com.data;
 import java.util.Properties;
 
 import com.item.Item;
-import com.sun.source.tree.Tree;
+import com.tree.Tree;
 import com.user.User;
 import com.userInfo.UserInfo;
-//import com.userInfo.UserInfo;
+
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -36,8 +36,8 @@ public class HibernateUntil
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(UserInfo.class);
                 configuration.addAnnotatedClass(User.class);
-                configuration.addAnnotatedClass(Tree.class);
                 configuration.addAnnotatedClass(Item.class);
+                configuration.addAnnotatedClass(Tree.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();

@@ -9,7 +9,7 @@ import com.data.HibernateUntil;
 
 public class TreeDAO {
     @SuppressWarnings("unchecked")
-    public List<Tree> SelectAllTree()
+    public static List<Tree> SelectAllTree()
     {
         try{
             return HibernateUntil.getSessionFacoty().openSession()
@@ -22,7 +22,7 @@ public class TreeDAO {
         return null;
     }
 
-    public void addTree(Tree tree)
+    public static void addTree(Tree tree)
     {
         Transaction transaction = null;
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
@@ -40,7 +40,7 @@ public class TreeDAO {
         }
     }
 
-    public void updateTree(Tree tree)
+    public static void updateTree(Tree tree)
     {
         Transaction transaction = null;
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
@@ -59,14 +59,19 @@ public class TreeDAO {
         }
     }
 
-    public void deleteTreeById(int id)
+    public static void deleteTreeById(int id)
     {
         Transaction transaction = null;
-        Tree tree = null;
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
         {
+            
             transaction = session.beginTransaction();
-            tree = session.get(Tree.class, id);
+            Tree tree = session.get(Tree.class, id);
+            if(tree != null)
+            {
+                session.delete(tree);
+            }
+            transaction.commit();
         }
         catch(Exception e)
         {
@@ -77,4 +82,54 @@ public class TreeDAO {
             e.printStackTrace();
         }
     }
+
+
+    public static Tree selectTreeByName(String name)
+    {
+        Transaction transaction = null;
+        Tree tree = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            tree = (Tree) session.createQuery("FROM Tree u WHERE u.treeName = :name")
+            .setParameter("name",name).uniqueResult();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return tree;
+    }
+
+    public static Tree selectTreeByNameAndBrand(String name, String brand)
+    {
+        Transaction transaction = null;
+        Tree tree = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            tree = (Tree) session.createQuery("FROM Tree u WHERE u.treeName = :name AND u.brand = :brand")
+            .setParameter("name",name).setParameter("brand", brand).uniqueResult();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return tree;
+    }
+
+    public static boolean existTree(String name, String brand)
+    {
+        Tree tree = selectTreeByNameAndBrand(name,brand);
+        return tree != null;
+    }
+
 }

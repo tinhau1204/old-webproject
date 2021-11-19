@@ -43,6 +43,7 @@
     background-color: whitesmoke;
     padding: 10px;
     text-align: center;
+    font-weight: 600;
 
 }
 .Product
@@ -58,7 +59,7 @@
 }
 .id-container
 {
-    width: 5%;
+    width: 10%;
     text-align: center;
 }
 .item-container
@@ -81,21 +82,207 @@
 }
 .price-container
 {
-    width: 15%;
+    width: 20%;
     text-align: center;
+    font-weight: 600;
 
 }
 .action-container
 {
-    width: 30%;
+    width: 20%;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: space-around;
     align-items: center;
     
 }
+
+.addItems-btn
+{
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    border: #3a9a6d solid 2px;
+    color: #3a9a6d;
+    cursor: pointer;
+}
+.addItems-btn:hover
+{
+    color: white;
+    background-color: #3a9a6d;
+}
+
 .btn-items
 {
     margin: 10px;
+    padding: 10px;
+}
+
+.btn-items:hover
+{
+    box-shadow:  0 -2px 10px 0 rgb(0 0 0 / 10%);
+    border-radius: 10px;
+}
+
+.addproduct
+{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: fadeIn linear 0.2s ;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+@keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+.box-addproduct
+{
+    width: 70%;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.box-title-add
+{
+    background-color: #3a9a6d;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.box-add-title
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.input-group
+{
+    margin: 0px;
+    width: 60%;
+}
+
+.input-style
+{
+    background: #e5e5e5;
+    width: 100%;
+    line-height: 50px;
+    border-radius: 5px;
+    font-size:  18px;
+    color: #555;
+    border: none;
+    outline: none;
+}
+
+.box-add-body
+{
+    width: 100%;
+    height: 100%;
+   padding: auto;
+   display:flex;
+   justify-content: center;
+   
+   flex-flow: column nowrap;
+
+}
+.name
+{
+    width: 20%;
+    text-align: center;
+}
+
+
+
+.box-line
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.add-btn-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.btn-box-add
+{
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    border-color: #3a9a6d;
+    background-color: white;
+    font-size: 20px;
+    font-weight: 700;
+    color: #3a9a6d;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.add-btn:hover
+{
+    background-color: #3a9a6d;
+    color: white;
+}
+
+.back-btn:hover
+{
+   background-color: rgb(161, 30, 30);
+   border-color: rgb(161, 30, 30);
+
+   color: white;
+   
+}
+
+@media(max-width: 700px)
+{
+    .box-body-title-container
+    {
+        display: none;
+    }
+
+    .Product
+    {
+        display: flex;
+        flex-flow: row wrap;
+        height: 100%;
+        border-bottom: whitesmoke solid 3px;
+    }
+    .id-container
+    {
+        width: 20%;
+    }
+    .box
+    {
+        width: 35%;
+    }
 }
 

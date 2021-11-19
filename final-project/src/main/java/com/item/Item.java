@@ -16,9 +16,11 @@ import com.tree.Tree;
 public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
     private int quality;
-    private long price;
+    private int price;
+
     @OneToOne
     private Tree tree;
 
@@ -28,7 +30,7 @@ public class Item implements Serializable {
         
     }
 
-    public Item(int id, int quality, Tree tree, long price)
+    public Item(int id, int quality, Tree tree, int price)
     {
         this.id = id;
         this.quality = quality;
@@ -62,11 +64,11 @@ public class Item implements Serializable {
         return this.tree;
     }
 
-    public void setPrice(long price)
+    public void setPrice(int price)
     {
         this.price = price;
     }
-    public long getPrice()
+    public int getPrice()
     {
         return this.price;
     }

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name = "tree")
 public class Tree implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tid")
     private int tId;
     
     private String treeName;

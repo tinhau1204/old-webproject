@@ -2,15 +2,14 @@ package com.userInfo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 
 
 import javax.persistence.Table;
 
 
 import java.io.Serializable;
-import java.util.Date;
+
 import javax.persistence.Id;
 
 @Entity
@@ -22,10 +21,10 @@ public class UserInfo implements Serializable
   @Column(name = "uid")
     int uid;
     
-    @Column(name = "fname")
+  
     private String fName;
 
-    @Column(name = "lname")
+    
     private String lName;
     private  String address;
 
@@ -42,7 +41,6 @@ public class UserInfo implements Serializable
         this.fName = firstName;
         this.lName = lastName;
         this.address = address;
-
         this.phone = phone;
     }
 

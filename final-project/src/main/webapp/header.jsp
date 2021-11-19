@@ -8,7 +8,7 @@
                     <span class="strike"></span>
 
                     <div class="plant-change">
-                        <a href = "./product.jsp">Plants</a>
+                        <a href = "salingProduct">Plants</a>
                     </div>
                 </div>
 
@@ -45,10 +45,10 @@
                     <div class="user-container nav-icon-container ">
                         <img src="icon_web/user.png" alt="User" class = "nav-icon">
                         <div class="user-control" id = "user-control">
-                            <a href="userInfo" class="user-control-content">Personal Information</a>
+                            <a href="personalInformation" class="user-control-content">Personal Information</a>
                             <a class="user-control-content">Purchase History</a>
                         <c:if test = "${sessionScope.user.admin == 1}">
-                            <a class="user-control-content">Load Product</a>
+                            <a href="productManagement" class="user-control-content">Manage Product</a>
                         </c:if> 
                         <a class="user-control-content" href="logout">Log Out</a>
                         </div>

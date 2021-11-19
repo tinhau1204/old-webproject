@@ -7,8 +7,12 @@ import java.util.List;
 import com.data.HibernateUntil;
 
 public class ItemDAO {
+        /**
+     * Get all products
+     * @return
+     */
     @SuppressWarnings("unchecked")
-    public  List<Item> SelectAllTheProduct()
+    public static List<Item> SelectAllTheProduct()
     {
         try
         {
@@ -22,7 +26,7 @@ public class ItemDAO {
         return null;
     }
 
-    public void addItem(Item item)
+    public static void addItem(Item item)
     {
         Transaction transaction = null;
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
@@ -40,7 +44,7 @@ public class ItemDAO {
         }
     }
 
-    public void updateItem(Item item)
+    public static void updateItem(Item item)
     {
         Transaction transaction = null;
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
@@ -59,7 +63,7 @@ public class ItemDAO {
         }
     }
 
-    public void deleteItemById(int id)
+    public static void deleteItemById(int id)
     {
         Transaction transaction = null;
         Item item = null;
@@ -81,5 +85,26 @@ public class ItemDAO {
             }
             e.printStackTrace();
         }
+    }
+
+    public static Item getItemById(int id)
+    {
+        Transaction transaction = null;
+        Item item = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            item = (Item) session.createQuery("FROM Item u WHERE u.id = :id")
+            .setParameter("id", id).uniqueResult();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return item;
     }
 }

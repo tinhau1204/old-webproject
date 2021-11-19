@@ -1,8 +1,6 @@
 package com.Controller;
 import java.io.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +11,7 @@ import com.userInfo.UserInfo;
 import com.userInfo.UserInfoDAO;
 
 
-@WebServlet(urlPatterns = "/userInfo")
+@WebServlet(urlPatterns = "/personalInformation")
 public class userInfoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,8 +28,9 @@ public class userInfoServlet extends HttpServlet {
             HttpSession session = req.getSession(); 
             User user = (User)session.getAttribute("user");
             userInfo = UserInfoDAO.selectUserInfoById(user.getId());
-            System.out.print(userInfo.getId());
-            req.setAttribute("userInformation", userInfo);
+            System.out.print(userInfo);
+            req.setAttribute("userInfo", userInfo);
+            
         }
         else if(action.equals("updateInfo"))
         {
@@ -68,6 +67,7 @@ public class userInfoServlet extends HttpServlet {
             req.setAttribute("userInfo", userInfo);
         
         }
+        
         getServletContext().getRequestDispatcher(url).forward(req, resp);
     }
     @Override

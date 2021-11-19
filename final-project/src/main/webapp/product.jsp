@@ -135,7 +135,7 @@
                     <div class="sort-container">
                         <label for="sort-by">Sort By</label>
                         <select name="" id="sort-by" >
-                            <option value="popularity">Popularity</option>
+                            <a href="./index.jsp"><option value="popularity">Popularity</option></a>
                             <option value="newest">Newest</option>
                             <option value="lowToHigh">Price Low to High</option>
                             <option value="highToLow">Price High to Low</option>
@@ -143,146 +143,24 @@
                     </div>
                 </div>
                 <div class="products-board">
-                    <a href="./detail.jsp" class="link-items">
-                    <div class="products-board-container">
-                        <div class="item-container">
-                            <div class="item-img-container">
-                                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                            </div>
-                            <div class="item-description">
-                                <div class="item-content">
-                                    <h1 >Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                </div>
-                                <span>640$</span>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <a href="./detail.jsp" class="link-items">
+                    <c:forEach var = "p" items = "${listItems}" varStatus = "status">
                         <div class="products-board-container">
-                            <div class="item-container">
-                                <div class="item-img-container">
-                                    <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                </div>
-                                <div class="item-description">
-                                    <div class="item-content">
-                                        <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                    </div>
-                                    <span>640$</span>
+                        <div class="items-box">
+                            <a href="#" class="img-item-container">
+                                <img src="${listTrees[status.index].getTreeImg()}" alt="" class="item-img">
+                            </a>
+                            <div class="items-box-content">
+                                <h1 class="items-name"><c:out value = "${listTrees[status.index].treeName}"/></h1>
+                                <div class="items-box-bottom">
+                                    <span class="item-price"><c:out value = "${p.price}"/>$</span>
+                                    <a href="#" class="btn-add-container">
+                                        <img src="./icon_web/cart-plus-solid.svg" alt="" class="btn-add-cart-logo">
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        </a>
-    
-                        <a href="./detail.jsp" class="link-items">
-                            <div class="products-board-container">
-                                <div class="item-container">
-                                    <div class="item-img-container">
-                                        <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                    </div>
-                                    <div class="item-description">
-                                        <div class="item-content">
-                                            <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                        </div>
-                                        <span>640$</span>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                            <a href="./detail.jsp" class="link-items">
-                                <div class="products-board-container">
-                                    <div class="item-container">
-                                        <div class="item-img-container">
-                                            <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                        </div>
-                                        <div class="item-description">
-                                            <div class="item-content">
-                                                <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                            </div>
-                                            <span>640$</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="./detail.jsp" class="link-items">
-                                    <div class="products-board-container">
-                                        <div class="item-container">
-                                            <div class="item-img-container">
-                                                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                            </div>
-                                            <div class="item-description">
-                                                <div class="item-content">
-                                                    <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                                </div>
-                                                <span>640$</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-    
-                                    <a href="./detail.jsp" class="link-items">
-                                        <div class="products-board-container">
-                                            <div class="item-container">
-                                                <div class="item-img-container">
-                                                    <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                                </div>
-                                                <div class="item-description">
-                                                    <div class="item-content">
-                                                        <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                                    </div>
-                                                    <span>640$</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </a>
-    
-                                        <a href="./detail.jsp" class="link-items">
-                                            <div class="products-board-container">
-                                                <div class="item-container">
-                                                    <div class="item-img-container">
-                                                        <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                                    </div>
-                                                    <div class="item-description">
-                                                        <div class="item-content">
-                                                            <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                                        </div>
-                                                        <span>640$</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </a>
-    
-                                            <a href="./detail.jsp" class="link-items">
-                                                <div class="products-board-container">
-                                                    <div class="item-container">
-                                                        <div class="item-img-container">
-                                                            <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                                        </div>
-                                                        <div class="item-description">
-                                                            <div class="item-content">
-                                                                <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                                            </div>
-                                                            <span>640$</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </a>
-    
-                                                <a href="cart.html" class="link-items">
-                                                    <div class="products-board-container">
-                                                        <div class="item-container">
-                                                            <div class="item-img-container">
-                                                                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="items">
-                                                            </div>
-                                                            <div class="item-description">
-                                                                <div class="item-content">
-                                                                    <h1>Plantsveda Krishma Rama Tulsi/ Basil Holy Live Plant With Pot</h1>
-                                                                </div>
-                                                                <span>640$</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
     
