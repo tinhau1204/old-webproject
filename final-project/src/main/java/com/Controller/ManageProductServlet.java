@@ -105,8 +105,4 @@ public class ManageProductServlet extends HttpServlet {
         doPost(req, resp);
     }
 
-    public void loadProduct()
-    {
-        
-    }
 }
