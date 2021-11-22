@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.item.Item;
-import com.item.ItemDAO;
-import com.tree.Tree;
+
 import com.tree.TreeDAO;
 
 @WebServlet("/deleteItem")
@@ -25,11 +23,7 @@ public class deleteItemsProductServlet extends HttpServlet {
         {
             
         }
-        Item items = new Item();
-        items = ItemDAO.getItemById(pid);
-        Tree tree = items.getTree();
-        ItemDAO.deleteItemById(pid);
-        TreeDAO.deleteTreeById(tree.getTreeid());
+        TreeDAO.deleteTreeById(pid);
         req.getRequestDispatcher("productManagement").forward(req, resp);
     }
     @Override

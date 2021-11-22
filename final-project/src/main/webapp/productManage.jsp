@@ -35,20 +35,20 @@
                     <div class="box-body-title price-container"> Price</div>
                     <div class="box-body-title action-container"> Action</div>
                 </div>
-                <c:forEach var = "p" items = "${listItems}" varStatus = "status" >
+                <c:forEach var = "p" items = "${listTrees}" >
                 <div class="Product">
-                    <h2 class="id-container "><c:out value = "${p.id}"/></h2>
+                    <h2 class="id-container "><c:out value = "${p.getTreeid()}"/></h2>
 
                     <a href="#" class="items-img-container item-container box" >
-                        <img src="${listTrees[status.index].getTreeImg()}" alt="" class="item-img">
+                        <img src="${p.getTreeImg()}" alt="" class="item-img">
                     </a>
 
                     <div class="items-description name-container box">
-                        <div class="items-name "><c:out value = "${listTrees[status.index].treeName}"/></div>
+                        <div class="items-name "><c:out value = "${p.treeName}"/></div>
                     </div>
 
                     <div class="items-description quality-container box">
-                        <div class="items-name"><c:out value = "${p.quality}"/></div>
+                        <div class="items-name"><c:out value = "${p.getAmount()}"/></div>
                     </div>
 
                     <div class="price-container price-container box">
@@ -59,7 +59,7 @@
                     <a href="" class="update-container btn-items box">
                         <img src="./icon_web/edit-solid.svg" class="update" width="35" height="35">
                     </a>
-                    <a href="deleteItem?pid=${p.id}" class="delete-container btn-items box" >
+                    <a href="deleteItem?pid=${p.getTreeid()}" class="delete-container btn-items box" >
                         <img src="./icon_web/trash-alt-solid.svg" width="35" height="35" alt="">
                     </a>
                     </div>

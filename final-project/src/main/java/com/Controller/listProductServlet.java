@@ -26,12 +26,9 @@ public class listProductServlet extends HttpServlet{
         }
         if(action.equals("loadItems"))
         {
-            List<Item> listItems = new ArrayList<Item>();
-            listItems = ItemDAO.SelectAllTheProduct();
             List<Tree> listTrees = new ArrayList<Tree>();
             listTrees = TreeDAO.SelectAllTree();
             req.setAttribute("listTrees", listTrees);
-            req.setAttribute("listItems", listItems);
         }
 
     getServletContext().getRequestDispatcher(url).forward(req, resp);

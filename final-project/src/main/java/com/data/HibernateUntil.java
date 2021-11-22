@@ -2,6 +2,7 @@ package com.data;
 
 import java.util.Properties;
 
+import com.cart.Cart;
 import com.item.Item;
 import com.tree.Tree;
 import com.user.User;
@@ -38,7 +39,7 @@ public class HibernateUntil
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Item.class);
                 configuration.addAnnotatedClass(Tree.class);
-
+                configuration.addAnnotatedClass(Cart.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
                 System.out.println("Hibernate Java Config serviceRegistry created");

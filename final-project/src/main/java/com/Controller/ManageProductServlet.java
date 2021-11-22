@@ -29,19 +29,17 @@ public class ManageProductServlet extends HttpServlet {
     }
     if(action.equals("goToManageProduct"))
     {
-        List<Item> listItems = new ArrayList<Item>();
-        listItems = ItemDAO.SelectAllTheProduct();
         List<Tree> listTrees = new ArrayList<Tree>();
         listTrees = TreeDAO.SelectAllTree();
         req.setAttribute("listTrees", listTrees);
-        req.setAttribute("listItems", listItems);
+       
     }
     else if( action.equals("addItems"))
     {
         url = "/productManage.jsp";
         String name = req.getParameter("nameAdd");
         String img = req.getParameter("imageAdd");
-       Integer quality = 0;
+        Integer quality = 0;
        try{
          quality =Integer.parseInt(req.getParameter("qualityAdd"));
        }
@@ -65,15 +63,13 @@ public class ManageProductServlet extends HttpServlet {
        String brand = req.getParameter("BrandAdd");
 
         Tree tree = new Tree();
-        tree.setTreeBrand(brand);
-        tree.setTreeDescription(description);
-        tree.setTreeImg(img);
-        tree.setTreeKind(kind);
         tree.setTreeName(name);
-        Item item = new Item();
-        item.setPrice(price);
-        item.setQuality(quality);
-        item.setTree(tree);
+        tree.setTreeKind(kind);
+        tree.setTreeBrand(brand);
+        tree.setTreeImg(img);
+        tree.setTreeDescription(description);
+        tree.setPrice(price);
+        tree.setAmount(quality);
 
         if(TreeDAO.existTree(name,brand))
         {
@@ -82,14 +78,10 @@ public class ManageProductServlet extends HttpServlet {
         else
         {
             TreeDAO.addTree(tree);
-            ItemDAO.addItem(item);
             message = "Input complete!!!";
-            List<Item> listItems = new ArrayList<Item>();
-            listItems = ItemDAO.SelectAllTheProduct();
             List<Tree> listTrees = new ArrayList<Tree>();
             listTrees = TreeDAO.SelectAllTree();
             req.setAttribute("listTrees", listTrees);
-            req.setAttribute("listItems", listItems);
         }
         req.setAttribute("message", message);
         
