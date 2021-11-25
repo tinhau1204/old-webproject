@@ -66,7 +66,7 @@ public class Tree implements Serializable {
     {
         this.kind = kind;
     }
-    public String getTreeKind(String kind)
+    public String getTreeKind()
     {
         return this.kind;
     }

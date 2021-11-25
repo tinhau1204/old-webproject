@@ -1,15 +1,13 @@
 package com.item;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,10 +20,10 @@ import com.tree.Tree;
 public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "iid")
+    private int iid;
     private int quality;
-    private int amount;
+    private int price;
     private String state;
     private Timestamp dayPaid;
 
@@ -40,23 +38,23 @@ public class Item implements Serializable {
         
     }
 
-    public Item(int id, int quality, Tree tree, int amount
+    public Item(int id, int quality, Tree tree, int price
     ,String state, Timestamp dayPaid)
     {
-        this.id = id;
+        this.iid = id;
         this.quality = quality;
         this.tree = tree;
-        this.amount = amount;
+        this.price = price;
         this.state = state;
         this.dayPaid = dayPaid;
     }
     public void setId(int id)
     {
-        this.id = id;
+        this.iid = id;
     }
     public int getId()
     {
-        return this.id;
+        return this.iid;
     }
 
     public void setQuality(int quality)
@@ -77,13 +75,13 @@ public class Item implements Serializable {
         return this.tree;
     }
 
-    public void setPrice(int amount)
+    public void setPrice(int price)
     {
-        this.amount = amount;
+        this.price = price;
     }
     public int getPrice()
     {
-        return this.amount;
+        return this.price;
     }
 
     public void setState(String state)

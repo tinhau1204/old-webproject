@@ -143,17 +143,17 @@
                     </div>
                 </div>
                 <div class="products-board">
-                    <c:forEach var = "p" items = "${listItems}" varStatus = "status">
+                    <c:forEach var = "p" items = "${listTrees}" >
                         <div class="products-board-container">
                         <div class="items-box">
-                            <a href="#" class="img-item-container">
-                                <img src="${listTrees[status.index].getTreeImg()}" alt="" class="item-img">
+                            <a href="itemsDetail?itemId=${p.getTreeid()} " class="img-item-container">
+                                <img src="${p.getTreeImg()}" alt="" class="item-img">
                             </a>
                             <div class="items-box-content">
-                                <h1 class="items-name"><c:out value = "${listTrees[status.index].treeName}"/></h1>
+                                <h1 class="items-name"><c:out value = "${p.treeName}"/></h1>
                                 <div class="items-box-bottom">
                                     <span class="item-price"><c:out value = "${p.price}"/>$</span>
-                                    <a href="#" class="btn-add-container">
+                                    <a href="addToCart?itemId=${p.getTreeid()}" class="btn-add-container">
                                         <img src="./icon_web/cart-plus-solid.svg" alt="" class="btn-add-cart-logo">
                                     </a>
                                 </div>

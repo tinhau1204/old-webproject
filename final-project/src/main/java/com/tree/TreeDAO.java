@@ -3,9 +3,11 @@ package com.tree;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.data.HibernateUntil;
+import com.item.Item;
 
 public class TreeDAO {
     @SuppressWarnings("unchecked")
@@ -131,5 +133,43 @@ public class TreeDAO {
         Tree tree = selectTreeByNameAndBrand(name,brand);
         return tree != null;
     }
+
+    public static Tree selectTreeById(int id)
+    {
+        Transaction transaction = null;
+        Tree tree = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            tree = (Tree) session.createQuery("FROM Tree u WHERE u.tId = :id")
+            .setParameter("id",id).uniqueResult();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return tree;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static List<Tree> loadFiveFirstTree()
+    {
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery("FROM Tree u WHERE u.amount > 0").setMaxResults(5).getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
 }

@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.data.HibernateUntil;
+
 public class CartDAO {
     public static Cart selectCartByUid(int uid)
     {
@@ -12,7 +13,7 @@ public class CartDAO {
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
         {
             transaction = session.beginTransaction();
-            cart = (Cart) session.createQuery("FROM cart")
+            cart = (Cart) session.createQuery("FROM Cart c WHERE c.user.uid=:uid")
             .setParameter("uid", uid).uniqueResult();
         }
         catch(Exception e)
@@ -24,6 +25,12 @@ public class CartDAO {
             e.printStackTrace();
         }
         return cart;
+    }
+
+    public static boolean checkExistCart(int uid)
+    {
+        Cart cart =  selectCartByUid(uid);
+        return cart != null;
     }
 
     public static void addCart(Cart cart)
@@ -62,4 +69,7 @@ public class CartDAO {
             e.printStackTrace();
         }
     }
+
+
+
 }

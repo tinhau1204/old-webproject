@@ -21,29 +21,37 @@
         <div class="box-container">
             <div class="img-section">
                 <div class="img-container">
-                    <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="" class="product-img">
+                    <img src="${tree.getTreeImg()}" alt="" class="product-img">
                 </div>
             </div>
             <div class="description-section">
                 <div class="saling-section">
-                    <h1 class="product-name sale">Bonsai Wild Plant With Pot</h1>
-                    <span class="price sale">999$</span>
+                    <h1 class="product-name sale"><c:out value = "${tree.treeName}"/></h1>
+                    <span class="price sale"><c:out value = "${tree.price}"/>$</span>
                     <div class="btn-saling sale">
-                        <button class="add-to-cart btn-product ">
-                            ADD TO CART
-                        </button>
-                        <button class="btn-buy-now btn-product"> BUY NOW</button>
+                        <form action="addToCartDetail" method="get">
+                            <input type="hidden" name = "action" value = "addToCart">
+                            <input type="hidden" name="itemId" value="${tree.getTreeid()}">
+                            <button class="add-to-cart btn-product " type="submit">
+                                ADD TO CART
+                            </button>
+                        </form>
+                        <form action="addToCartDetail">
+                            <input type="hidden" name="action" value="buyNow">
+                            <input type="hidden" name="itemId" value="${tree.getTreeid()}">
+                            <button class="btn-buy-now btn-product" type="submit"> BUY NOW</button>
+                        </form>
                     </div>
                     <span class="product-name sale">Specifications</span>
                 </div>
                 <div class="detail-product">
                     <div class="brand-section detail">
                         <span class="brand title detail-style"> Brand</span>
-                        <span class="brand info detail-style"> Hyperboles</span>
+                        <span class="brand info detail-style"> <c:out value = "${tree.getTreeBrand()}"/></span>
                     </div>
                     <div class="type-section detail">
                         <spand class="type title detail-style">Type</spand>
-                        <span class="type info detail-style"> Bonsai</span>
+                        <span class="type info detail-style"><c:out value = "${tree.getTreeKind()}"/></span>
                     </div>
                 </div>
             </div>

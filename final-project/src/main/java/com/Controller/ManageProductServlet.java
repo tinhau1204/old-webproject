@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.item.Item;
-import com.item.ItemDAO;
+
 import com.tree.Tree;
 import com.tree.TreeDAO;
 @WebServlet("/productManagement")

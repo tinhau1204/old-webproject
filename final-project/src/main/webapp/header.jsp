@@ -34,7 +34,7 @@
                 <input type="text" placeholder="Search" class = "input-search" size="25"/>
             </div>
             <c:if test = "${sessionScope.user != null}">
-            <a href="./Cart.jsp" class="icon-link">
+            <a href="Cartlist" class="icon-link">
                 <div class="cart-container nav-icon-container">
                     <img src="icon_web/shopping-cart.png" alt="shopping cart" class = "nav-icon">
                 </div>

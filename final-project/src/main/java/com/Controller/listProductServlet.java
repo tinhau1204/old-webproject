@@ -8,8 +8,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.item.Item;
-import com.item.ItemDAO;
+
 import com.tree.Tree;
 import com.tree.TreeDAO;
 @WebServlet("/salingProduct")

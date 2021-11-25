@@ -40,6 +40,7 @@ public class loginServlet extends HttpServlet {
                     user = UserDAO.selectUser(email);
                     HttpSession session = req.getSession();
                     session.setAttribute("user", user);
+                    session.setMaxInactiveInterval(-1);
                 }
                 else
                 {

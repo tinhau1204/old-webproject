@@ -8,29 +8,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.item.ItemDAO;
+
+
+import com.tree.Tree;
 import com.tree.TreeDAO;
 
-@WebServlet("/deleteItem")
-public class deleteItemsProductServlet extends HttpServlet {
+
+@WebServlet("/itemsDetail")
+public class itemDetailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer pid = null;
-        try{
-            pid =Integer.parseInt(req.getParameter("pid")) ;
+        String url = "/detail.jsp";
+        Integer itemId = null;
+        try
+        {
+            itemId = Integer.parseInt(req.getParameter("itemId"));
         }
         catch(NumberFormatException nfe)
         {
-            
-        }
-        ItemDAO.deleteItemByTreeId(pid);
-        TreeDAO.deleteTreeById(pid);
 
-        
-        req.getRequestDispatcher("productManagement").forward(req, resp);
+        }
+       
+            Tree tree = TreeDAO.selectTreeById(itemId);
+            req.setAttribute("tree", tree);
+    getServletContext().getRequestDispatcher(url).forward(req, resp);
+
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
         doPost(req, resp);
+
     }
 }

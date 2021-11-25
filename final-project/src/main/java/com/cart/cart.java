@@ -22,12 +22,13 @@ import com.user.User;
 public class Cart implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "cid")
+    private int cid;
+    
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
     private List<Item> items = new ArrayList<Item>();
 
     public Cart()
@@ -35,19 +36,19 @@ public class Cart implements Serializable{
 
     }
 
-    public Cart(int id, User user)
+    public Cart(int id, User user, List<Item> items)
     {
-        this.id = id;
+        this.cid = id;
         this.user = user;
         this.items = items;
     }
     public void setId(int id)
     {
-        this.id = id;
+        this.cid = id;
     }
     public int getId()
     {
-        return this.id;
+        return this.cid;
     }
 
     public void setUser(User user)

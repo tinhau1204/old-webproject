@@ -1,5 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Components/reset.css">
+    <link rel="stylesheet" href="./Components/global.css">
+    <link rel="stylesheet" href="./Components/Header/nav-pc.css">
+    <link rel="stylesheet" href="./Components/Header/left-nav.css">
+    <link rel="stylesheet" href="./Components/mainpage/slide.css">
+    <link rel="stylesheet" href="./Components/mainpage/categlories.css">
+    <link rel="stylesheet" href="./Components/mainpage/product.css">
+    <link rel="stylesheet" href="./Components/footer/footer.css">
+    <link rel="stylesheet" type = "text/css" href="./Components/mainpage/slider/lightslider.css">
+    <link rel="stylesheet" href="./Components/mainpage/service.css">
+    <script type="text/javascript" src="./Components/mainpage/slider/JQuery.js"></script>
+    <script type = "text/javascript" src = "./Components/mainpage/slider/lightslider.js"></script>
+    <script type = "text/javascript" src = "./Components/mainpage/slider/script.js"></script>
+    <script type="text/javascript" src="./Components/js/slide-img.js"></script>
+    <title>Document</title>
+</head>
 
-
+<body>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ include file = "./header.jsp"%>
     <div class="slide-section">
     <div class="slider">
         <div class="slides">
@@ -113,86 +137,24 @@
 <div class="featured-plants-section">
 
    <ul id="autoWidth" class = "css-hidden">
+       <c:forEach var = "p" items = "${listTrees}">
        <li class="item-a">
         <div class = "box-cate">
             <div class = "slide-img-cate">
-                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="1">
+                <img src="${p.getTreeImg()}" alt="1">
                 <div class="overplay-cate">
-                    <a href="#" class="buy-btn">Buy Now</a>
+                    <a href="addToCartDetail?itemId=${p.getTreeid()}"" class="buy-btn">Buy Now</a>
                 </div>
             </div>
             <div class="detail-box-cate">
                 <div class="type-cate">
-                    <a href="#">Beautiful Yellow</a
+                    <a href="itemsDetail?itemId=${p.getTreeid()}"><c:out value = "${p.treeName}"/></a>
                 </div>
-                <a href="#" class="price">$23</a>
+                <a href="itemsDetail?itemId=${p.getTreeid()}" class="price">$<c:out value = "${p.price}"/></a>
             </div>
         </div>
        </li>
-       <li class="item-b">
-        <div class = "box-cate">
-            <div class = "slide-img-cate">
-                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="1">
-                <div class="overplay-cate">
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="detail-box-cate">
-                <div class="type-cate">
-                    <a href="#">Beautiful Yellow</a
-                </div>
-                <a href="#" class="price">$23</a>
-            </div>
-        </div>
-       </li>
-       <li class="item-c">
-        <div class = "box-cate">
-            <div class = "slide-img-cate">
-                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="1">
-                <div class="overplay-cate">
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="detail-box-cate">
-                <div class="type-cate">
-                    <a href="#">Beautiful Yellow</a
-                </div>
-                <a href="#" class="price">$23</a>
-            </div>
-        </div>
-       </li>
-       <li class="item-d">
-        <div class = "box-cate">
-            <div class = "slide-img-cate">
-                <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="1">
-                <div class="overplay-cate">
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="detail-box-cate">
-                <div class="type-cate">
-                    <a href="#">Beautiful Yellow</a
-                </div>
-                <a href="#" class="price">$23</a>
-            </div>
-        </div>
-       </li>
-        <li class="item-e">
-            <div class = "box-cate">
-                <div class = "slide-img-cate">
-                    <img src="./picture/Beautiful-Yellow-Daffodils_1499169127126.jpg" alt="1">
-                    <div class="overplay-cate">
-                        <a href="#" class="buy-btn">Buy Now</a>
-                    </div>
-                </div>
-                <div class="detail-box-cate">
-                    <div class="type-cate">
-                        <a href="#">Beautiful Yellow</a>
-                    </div>
-                    <a href="#" class="price">$23</a>
-                </div>
-            </div>
-        </li>
+    </c:forEach>
         
     </ul>
 
@@ -261,3 +223,5 @@
 
 </div>
 <!--Service end-->
+<%@ include file = "./footer.jsp"%>
+</body>

@@ -4,6 +4,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
+import com.cart.Cart;
 import com.data.HibernateUntil;
 
 public class ItemDAO {
@@ -107,4 +108,93 @@ public class ItemDAO {
         }
         return item;
     }
+
+    public static Item selectUnpaidItemById(int cartId, int itemId )
+    {
+        Transaction transaction = null;
+        Item item = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            String state = "order";
+            transaction = session.beginTransaction();
+            item = (Item) session.createQuery("FROM Item i WHERE i.cart.cid=:cid AND i.state=:state AND i.tree.tId=:tid ")
+            .setParameter("cid", cartId).setParameter("tid", itemId).setParameter("state", state).uniqueResult();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return item;
+    }
+
+    public static boolean checkUnpaidItemById(int cartId, int itemId)
+    {
+        Item item = selectUnpaidItemById(cartId, itemId);
+        return item != null;
+    }
+
+    public static void deleteItemByTreeId(int treeId)
+    {
+        Transaction transaction = null;
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            session.createQuery("DELETE FROM Item i WHERE i.tree.tId = :tid")
+            .setParameter("tid", treeId).executeUpdate();
+            transaction.commit();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        
+    }
+
+    @SuppressWarnings("unchecked")
+    public static List<Item> SelectAllUserProducts(int cartId)
+    {
+        String state = "order";
+        try
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery("FROM Item i WHERE i.cart.cid = :cid AND state = :state")
+            .setParameter("cid", cartId).setParameter("state",state).getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void deleteAllUnpaidItems(int cartId)
+    {
+        Transaction transaction = null;
+        String state = "order";
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            transaction = session.beginTransaction();
+            session.createQuery("DELETE FROM Item i WHERE i.cart.cid = :cid AND i.state = :state")
+            .setParameter("cid", cartId).setParameter("state", state).executeUpdate();;
+            transaction.commit();
+        }
+        catch(Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    
 }

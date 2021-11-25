@@ -284,5 +284,10 @@
     {
         width: 35%;
     }
+
+    .name
+    {
+        font-size: 10px;
+    }
 }
 
