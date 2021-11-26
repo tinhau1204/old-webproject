@@ -27,7 +27,11 @@ public class listProductServlet extends HttpServlet{
             }
             if(action.equals("loadProduct"))
             {
+                List<String> listKinds = TreeDAO.loadListTreeKinds();
+                List<String>listBrands = TreeDAO.loadListTreeBrands();
                 listTrees = TreeDAO.load12FirstTree();
+                req.setAttribute("listBrands", listBrands);
+                req.setAttribute("listKinds", listKinds);
                 req.setAttribute("listTrees", listTrees);
                 getServletContext().getRequestDispatcher(url).forward(req, resp);
             }

@@ -176,7 +176,8 @@ public class TreeDAO {
         try(Session session = HibernateUntil.getSessionFacoty().openSession())
         {
             return HibernateUntil.getSessionFacoty().openSession()
-            .createQuery("FROM Tree u WHERE u.amount > 0").setMaxResults(12).getResultList();
+            .createQuery("FROM Tree u WHERE u.amount > 0")
+            .setMaxResults(5).getResultList();
         }
         catch(Exception e)
         {
@@ -202,5 +203,35 @@ public class TreeDAO {
         return null;
     }
 
+    @SuppressWarnings("unchecked")
+    public static List<String> loadListTreeKinds()
+    {
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery("SELECT DISTINCT p.kind FROM Tree p")
+            .getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    @SuppressWarnings("unchecked")
+    public static List<String> loadListTreeBrands()
+    {
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery("SELECT DISTINCT p.brand FROM Tree p")
+            .getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

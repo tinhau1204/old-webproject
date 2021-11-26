@@ -21,7 +21,7 @@
     <div class="product-container">
         <div class="include">
         <div class="main-board">
-            <div class="type-board">
+            <form class="type-board">
                 <div class="plants-title ">
                     <h1 id = "plant-title">Plants</h1>
                 </div>
@@ -31,106 +31,37 @@
                         <h1 class="check-title">TYPE</h1>
                     </div>
                     
-                    <ul class="type-lists">
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "1">
-                            <label for="1">Air Purifying Plant</label>
-                        </li>
-                        
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "2">
-                            <label for="2">Bonsai</label>
-                        </li>
-                        
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "3">
-                            <label for="3">Cactus & Succulents</label>
-                        </li>
-                        
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "4">
-                            <label for="4">Climbers & Creepers</label>
-                        </li>
-                        
-                        <li class="type-elements">
-                            
-                            <input type="checkbox" class="type-check" value = "" id = "5">
-                            <label for="5">Flowering</label>
-                        </li>
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "6">
-                            <label for="6">Foliage Plant</label>
-                        </li>
-                        
-                        <li class="type-elements">
-                            <input type="checkbox" class="type-check" value = "" id = "7">
-                            <label for="7">Money Plant</label>
-                        </li>
-                    </ul>
-                        
-                </div>
-                    
-    
-                    <div class="price-section check-list ">
-                        <div class="filter-title">
-                            <h1 class="check-title" id = "price">PRICE</h1>
-                        </div>
-                        <ul class="price-list">
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "below250">
-                                <label for="below250">Below 250</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "251-500">
-                                <label for="251-500">251 - 500</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "500-1000">
-                                <label for="500-1000">501 - 1000</label>
-                            </li>
-                        </ul>
+                    <div class="type-lists">
+                        <select class=" fill-type select_type">
+                            <option class="option-box"><c:out value= "${selection}"></c:out> All</option>
+                            <c:forEach var = "p" items = "${listKinds}" >
+                                <option class="option-box" value="${p}"><c:out value= "${p}"></c:out></option>
+                            </c:forEach>
+                        </select>
                     </div>
-    
+                </div>
                     <div class="brand-section check-list ">
                         <div class="filter-title ">
                             <h1 class="check-title">BRAND</h1>
+                            <select class=" fill-type select_brand">
+                                <option class="option-box">All</option>
+                                <c:forEach var = "b" items = "${listBrands}" >
+                                    <option class="option-box" value="${b}"><c:out value= "${b}"></c:out></option>
+                                </c:forEach>
+                            </select>
                         </div>
-                        <ul class="brand-list">
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "bunny">
-                                <label for="bunny">Bunny</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "columnar">
-                                <label for="columnar">Columnar</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "egrow">
-                                <label for="egrow">Egrow</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "Huernia">
-                                <label for="Huernia">Huernia</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "jade">
-                                <label for="jade">jade</label>
-                            </li>
-    
-                            <li class="type-elements">
-                                <input type="checkbox" class="type-check" value = "" id = "jasminum">
-                                <label for="jasminum">jasminum</label>
-                            </li>
-    
-                        </ul>
+                        
+                        <div class="filter-container" >
+                            <div class="filter-container-btn">
+                                <button type="submit" class="filter-btn">Filter</button>
+                            </div>
+                            <form action="" class="filter-container-btn">
+                                <input type="hidden" name="action" value = "filter">
+                                <button type="submit" class="filter-btn">Clear</button>
+                            </form>
+                        </div>
                     </div>
-            </div>
+            </form>
     
             <div class="product-board">
                 <div class="choose-board">
@@ -144,7 +75,7 @@
                         </select>
                     </div>
                 </div>
-                <div id="content" class="products-board">
+                <div id="content" class="products-board" >
                     <c:forEach var = "p" items = "${listTrees}" >
                         <div class="products-board-container tree">
                         <div class="items-box">
@@ -162,10 +93,9 @@
                             </div>
                         </div>
                         </div>
-                        
                     </c:forEach>
                 </div>
-                <button onclick="loadMoreProducts()" class="btn-loadmore">Load More</button>
+                <button class="loadMore-btn" onclick="loadMoreProducts()">Load More</button>
             </div>
     
             

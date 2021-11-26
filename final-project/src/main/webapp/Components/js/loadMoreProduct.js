@@ -1,3 +1,13 @@
+
+// $(window).scroll(function() {
+//   if($(window).scrollTop() + window.innerHeight == $(document).height()) 
+//   {
+//     loadMoreProducts();
+//   }
+// });
+
+
+
 function loadMoreProducts()
 {
   var amount = document.getElementsByClassName("tree").length;
