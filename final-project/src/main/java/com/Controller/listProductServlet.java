@@ -14,28 +14,65 @@ import com.tree.TreeDAO;
 @WebServlet("/salingProduct")
 public class listProductServlet extends HttpServlet{
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
     throws ServletException, IOException
     {
         String action = req.getParameter("action");
         String url = "/product.jsp";
-        if(action == null)
-        {
-            action = "loadItems";
-        }
-        if(action.equals("loadItems"))
-        {
-            List<Tree> listTrees = new ArrayList<Tree>();
-            listTrees = TreeDAO.SelectAllTree();
-            req.setAttribute("listTrees", listTrees);
-        }
+        List<Tree> listTrees = new ArrayList<Tree>();
+        req.setAttribute("listTrees", listTrees);
+            if(action == null)
+            {
+                action = "loadProduct";
+            }
+            if(action.equals("loadProduct"))
+            {
+                listTrees = TreeDAO.load12FirstTree();
+                req.setAttribute("listTrees", listTrees);
+                getServletContext().getRequestDispatcher(url).forward(req, resp);
+            }
+            else if(action.equals("loadMore"))
+            {
+                String numberTree = req.getParameter("exist");
+                Integer itemStart = null;
+                try
+                {
+                    itemStart = Integer.parseInt(numberTree);
+                }
+                catch(NumberFormatException nfe)
+                {
 
-    getServletContext().getRequestDispatcher(url).forward(req, resp);
+                }
+                listTrees = TreeDAO.load12NextTree(itemStart);
+                PrintWriter out = resp.getWriter();
+                for(Tree p : listTrees)
+                {
+                    
+                    out.println(" <div class=\"products-board-container tree\">\n"
+                        +" <div class=\"items-box\">\n"
+                        +    "<a href=\"itemsDetail?itemId="+ p.getTreeid() +" \" class=\"img-item-container\">\n"
+                        +        "<img src=\""+p.getTreeImg()+"\" class=\"item-img\">\n"
+                        +    "</a>\n"
+                        +    "<div class=\"items-box-content\">\n"
+                        +        "<h1 class=\"items-name\">"+p.getTreeName()+"</h1>\n"
+                        +        "<div class=\"items-box-bottom\">\n"
+                        +            "<span class=\"item-price\">" + p.getPrice() + " $</span>\n"
+                        +            "<a href=\"addToCart?itemId="+p.getTreeid() +"\" class=\"btn-add-container\">\n"
+                        +                "<img src=\"./icon_web/cart-plus-solid.svg\" class=\"btn-add-cart-logo\">\n"
+                        +            "</a>\n"
+                        +        "</div>\n"
+                        +    "</div>\n"
+                        +"</div>\n"
+                        +"</div>\n");
+                    }
+            }
+
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
+    
     
 }

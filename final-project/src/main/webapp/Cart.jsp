@@ -60,7 +60,7 @@
                 </div>
                 </div>
                 </c:forEach>
-                <form action="salingProduct" method="post" class="continue-container">
+                <form action="salingProduct" method="get" class="continue-container">
                     <button class="btn-continue">CONTINUE SHOPPING</button>
                 </form>
     

@@ -82,7 +82,8 @@ public class addToCartServlet extends HttpServlet {
             }
             
         }
-        req.getRequestDispatcher(url).forward(req, resp);
+        // req.getRequestDispatcher(url).forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/salingProduct");
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

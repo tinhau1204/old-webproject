@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./Components/Header/left-nav.css">
     <link rel="stylesheet" href="./Components/footer/footer.css">
     <link rel="stylesheet" href="./Components/products/list-product.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./Components/js/loadMoreProduct.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -142,9 +144,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="products-board">
+                <div id="content" class="products-board">
                     <c:forEach var = "p" items = "${listTrees}" >
-                        <div class="products-board-container">
+                        <div class="products-board-container tree">
                         <div class="items-box">
                             <a href="itemsDetail?itemId=${p.getTreeid()} " class="img-item-container">
                                 <img src="${p.getTreeImg()}" alt="" class="item-img">
@@ -160,8 +162,10 @@
                             </div>
                         </div>
                         </div>
+                        
                     </c:forEach>
                 </div>
+                <button onclick="loadMoreProducts()" class="btn-loadmore">Load More</button>
             </div>
     
             
