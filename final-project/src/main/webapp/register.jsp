@@ -17,13 +17,18 @@
             <form action="register" method="post" class="login-container">
                 <input type="hidden" name="register" value = "register">
                 <input  type="text" name="email" placeholder="Email" class= "box text-box" required/>
-                <input  type="password" name="password" placeholder="Password" class="box text-box" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
-                <input  type="password" name="2password" placeholder="Password" class="box text-box" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+                <input  type="password" name="password" placeholder="Password" class="box text-box" 
+				    oninvalid="this.setCustomValidity('Password must be 8 characters including at least 1 uppercase letter, and numeric characters')"
+				   	oninput="this.setCustomValidity('')"
+					title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" 
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+                <input 
+					type="password" name="2password" placeholder="Password" class="box text-box" required/>
                 <p><i class="inform-message">${message}</i></p>
 
                 <button type="submit"  class="btn-login box">Register</button>
             </form>
-            <a href="./login.jsp" class="register box">I have already have account</a>
+            <a href="./login.jsp" class="register box">I already have an account</a>
         </div>
         <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
         

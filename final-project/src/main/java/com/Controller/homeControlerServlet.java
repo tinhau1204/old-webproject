@@ -13,20 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.tree.Tree;
 import com.tree.TreeDAO;
 
-
 @WebServlet("/home")
-public class homeControlerServlet extends HttpServlet 
-{
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Tree>listTrees = new ArrayList<Tree>();
-        listTrees = TreeDAO.loadFiveFirstTree();
-        req.setAttribute("listTrees", listTrees);
-        getServletContext().getRequestDispatcher("/home.jsp").forward(req, resp);
+public class homeControlerServlet extends HttpServlet {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<Tree> listTrees = new ArrayList<Tree>();
+		listTrees = TreeDAO.loadFiveFirstTree();
+		req.setAttribute("listTrees", listTrees);
+		getServletContext().getRequestDispatcher("/home.jsp").forward(req, resp);
 
-    }
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
-    }
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
 }

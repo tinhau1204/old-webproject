@@ -35,44 +35,42 @@
                 <datalist id = "search-list">
                 </datalist>
                 <input type="hidden" name="action" value="searchItem">
-                <button type="submit" class="search-btn">Find</button>
+				<input type="image" class="search-btn" src="./icon_web/loupe.png"  alt="Submit">
             </form>
-            <c:if test = "${sessionScope.user != null}">
-            <a href="Cartlist" class="icon-link">
-                <div class="cart-container nav-icon-container">
-                    <img src="icon_web/shopping-cart.png" alt="shopping cart" class = "nav-icon">
-                </div>
-            </a>
-            </c:if>
-            <c:if test = "${sessionScope.user != null}">
-                <div href="#" class="icon-link " id = "user-login">
-                    <div class="user-container nav-icon-container ">
-                        <img src="icon_web/user.png" alt="User" class = "nav-icon">
-                        <div class="user-control" id = "user-control">
-                            <a href="personalInformation" class="user-control-content">Personal Information</a>
-                            <a class="user-control-content">Purchase History</a>
-                        <c:if test = "${sessionScope.user.admin == 1}">
-                            <a href="productManagement" class="user-control-content">Manage Product</a>
-                        </c:if> 
-                        <a class="user-control-content" href="logout">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </c:if>
-            <c:if test = "${sessionScope.user == null}">
-                <div class="login-container">
-                <a href="./login.jsp" class="login">Login</a>
-                <span> / </span>
-                <a href="./register.jsp" class="login">SignUp</a>
-            </div>
+			<c:choose>
+				<c:when test = "${sessionScope.user != null}">
+					<a href="Cartlist" class="icon-link">
+						<div class="cart-container nav-icon-container">
+							<img src="icon_web/shopping-cart.png" alt="shopping cart" class = "nav-icon">
+						</div>
+					</a>
+					<div href="#" class="icon-link " id = "user-login">
+						<div class="user-container nav-icon-container ">
+							<img src="icon_web/user.png" alt="User" class = "nav-icon">
+							<div class="user-control" id = "user-control">
+								<a href="personalInformation" class="user-control-content">Personal Information</a>
+								<a class="user-control-content">Purchase History</a>
+							<c:if test = "${sessionScope.user.admin == 1}">
+								<a href="productManagement" class="user-control-content">Manage Product</a>
+							</c:if> 
+							<a class="user-control-content" href="logout">Log Out</a>
+							</div>
+						</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="login-container">
+					<a href="./login.jsp" class="login">Login</a>
+					<span>&nbsp; / &nbsp;</span> 
+					<a href="./register.jsp" class="login">SignUp</a>
+				</div>
 
-            </c:if>
+				</c:otherwise>
+			</c:choose>
 
         </div>
         
         <!--left nav-->
-        
             <input type = "checkbox" id = "nav-input" class="nav__input">
             <label for="nav-input">
             <div class = "open-nav-logo">

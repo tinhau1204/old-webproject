@@ -1,127 +1,106 @@
-
-.back-btn
-{
-    width: 30px;
-    position: absolute;
-    right: 10px;
-    top: 10px; 
+.back-btn {
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
-
-.container
-{
-    padding: 50px 45px;
-    background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
-
+.container {
+  padding: 50px 45px;
+  background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
 }
 
-.wrapper
-{
-    max-width: 790px;
-    margin: 0 auto;
+.wrapper {
+  max-width: 790px;
+  margin: 0 auto;
 }
 
-.main-box
-{
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 8px 20px 0px rgb(0 0 0 / 15%);
+.main-box {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px 0px rgb(0 0 0 / 15%);
 }
 
-.box-header
-{
-    padding: 20px 0;
-    background-color: #1a1a1a;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+.box-header {
+  padding: 20px 0;
+  background-color: #1a1a1a;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
-.title
-{
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-align: center;
-    color: #fff;
+.title {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
 }
 
-.box-body
-{
-    padding: 52px 85px;
-    padding-bottom: 73px;
+.box-body {
+  padding: 52px 85px;
+  padding-bottom: 73px;
 }
 
-.line
-{
-    display: flex;
-    flex-flow: row nowrap;
-    margin-bottom: 55px;
-    justify-content: center;
-    align-items: center;
+.line {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 55px;
+  justify-content: center;
+  align-items: center;
 }
 
-.name
-{
-    width: 125px;
-    color: #555;
-    font-size: 15px;
-    font-weight: 700;
+.name {
+  width: 125px;
+  color: #555;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.value
-{
-    width: calc(100% - 125px);
+.value {
+  width: calc(100% - 125px);
 }
 
-.input-group
-{
-    margin: 0px;
-    position: relative;
+.input-group {
+  margin: 0px;
+  position: relative;
 }
 
-
-.email
-{
-    pointer-events: none;
+.email {
+  pointer-events: none;
 }
-.input-style
-{
-    background: #e5e5e5;
-    width: 100%;;
-    line-height: 50px;
-    border-radius: 5px;
-    padding: 0 22px;
-    font-size:  16px;
-    color: #555;
-    border: none;
-    outline: none;
+.input-style {
+  background: #e5e5e5;
+  width: 100%;
+  line-height: 50px;
+  border-radius: 5px;
+  padding: 0 22px;
+  font-size: 16px;
+  color: #555;
+  border: none;
+  outline: none;
 }
-.update-btn
-{
-    background: #ff4b5a;
-    border-radius: 5px;
-    display: inline-block;
-    line-height: 50px;
-    padding: 0 50px;
-    cursor: pointer;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 15px;
+.update-btn {
+  background: #ff4b5a;
+  border-radius: 5px;
+  display: inline-block;
+  line-height: 50px;
+  padding: 0 50px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 15px;
 }
 
-@media (max-width: 500px)
-{
-    .box-body
-    {
-        padding: 10px;
-    }
-    .value
-    {
-        width: 100%;
-    }
-    .input-style
-    {
-        padding: 0px;
-    }
+@media (max-width: 500px) {
+  .box-body {
+    padding: 10px;
+  }
+  .value {
+    width: 100%;
+  }
+  .input-style {
+    padding: 0px;
+  }
 }
+
