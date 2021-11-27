@@ -234,4 +234,21 @@ public class TreeDAO {
         }
         return null;
     }
+
+    @SuppressWarnings("unchecked")
+    public static List<Tree> searchTreeByName(String nameSearch)
+    {
+        String name = "'%" + nameSearch + "%'";
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery("FROM Tree t WHERE t.treeName LIKE " + name)
+            .getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

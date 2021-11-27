@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="./Components/footer/footer.css">
     <link rel="stylesheet" type = "text/css" href="./Components/mainpage/slider/lightslider.css">
     <link rel="stylesheet" href="./Components/mainpage/service.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./Components/mainpage/slider/JQuery.js"></script>
     <script type = "text/javascript" src = "./Components/mainpage/slider/lightslider.js"></script>
     <script type = "text/javascript" src = "./Components/mainpage/slider/script.js"></script>
     <script type="text/javascript" src="./Components/js/slide-img.js"></script>
+    <script type="text/javascript" src="./Components/js/searchProductByName.js"></script>
     <title>Document</title>
 </head>
 

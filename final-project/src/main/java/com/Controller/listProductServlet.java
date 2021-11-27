@@ -70,6 +70,31 @@ public class listProductServlet extends HttpServlet{
                         +"</div>\n");
                     }
             }
+            else if(action.equals("searchByName"))
+            {
+                String searchName = req.getParameter("searchName");
+                List<Tree> listSearchByName = TreeDAO.searchTreeByName(searchName);
+                PrintWriter out = resp.getWriter();
+                for(Tree p: listSearchByName)
+                {
+                    out.println(
+                        "<option value=\""+p.getTreeName()+"\">\n"
+                    );
+                }
+
+            }
+
+            else if (action.equals("searchItem"))
+            {
+                String searchName = req.getParameter("searchName");
+                List<Tree> listSearchByName = TreeDAO.searchTreeByName(searchName);
+                List<String> listKinds = TreeDAO.loadListTreeKinds();
+                List<String>listBrands = TreeDAO.loadListTreeBrands();
+                req.setAttribute("listTrees", listSearchByName);
+                req.setAttribute("listBrands", listBrands);
+                req.setAttribute("listKinds", listKinds);
+                getServletContext().getRequestDispatcher(url).forward(req, resp);
+            }
 
     }
 

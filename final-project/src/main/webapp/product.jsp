@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./Components/footer/footer.css">
     <link rel="stylesheet" href="./Components/products/list-product.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./Components/js/searchProductByName.js"></script>
     <script src="./Components/js/loadMoreProduct.js"></script>
     <title>Document</title>
 </head>

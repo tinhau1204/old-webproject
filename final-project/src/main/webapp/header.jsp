@@ -30,9 +30,13 @@
                     <li class = "list-content"><a href="./index.jsp#service">SERVICE</a></li>
                 </ul>
             </div>
-            <div class="input-container">
-                <input type="text" placeholder="Search" class = "input-search" size="25"/>
-            </div>
+            <form action="salingProduct" class="input-container">
+                <input oninput="searchProductByName(this)" name="searchName" type="text" id="search-header" list="search-list" placeholder="Search" class = "input-search" size="25"/>
+                <datalist id = "search-list">
+                </datalist>
+                <input type="hidden" name="action" value="searchItem">
+                <button type="submit" class="search-btn">Find</button>
+            </form>
             <c:if test = "${sessionScope.user != null}">
             <a href="Cartlist" class="icon-link">
                 <div class="cart-container nav-icon-container">
@@ -91,9 +95,12 @@
                 <div class="nav-content">
 
                     <div class="list-nav mobile">
-                        <div class="input-container">
-                            <input type="text" placeholder="Search" class = "input-search" size="25"/>
-                        </div>
+                        <form action="" class="input-container">
+                            <!-- <input type="text" id="search-header" placeholder="Search" class = "input-search" size="25" oninput="searchProductByName(this)"/>
+                            <datalist id = "search-header">
+                            </datalist> -->
+                            <button type="submit" class="search-btn">*</button>
+                        </form>
                         <ul class="list-contain moblie">
                             <li class ="list-content"><a href="./index.jsp">HOME</a></li>
                             <li class = "list-content"><a href="./index.jsp#categories">CATEGORIES</a></li>

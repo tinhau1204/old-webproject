@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./Components/Header/left-nav.css">
     <link rel="stylesheet" href="./Components//detail//detail.css">
     <link rel="stylesheet" href="./Components/footer/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./Components/js/searchProductByName.js"></script>
     <title>Document</title>
 </head>
 <body>

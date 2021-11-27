@@ -167,7 +167,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 80%;
 }
 
@@ -194,7 +194,14 @@
 {
     margin: 0 10px;
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+
+
 .input-search
 {
     font-size: 20px;
@@ -300,3 +307,6 @@
 {
     color: rgb(3, 141, 141);
 }
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 0;}
