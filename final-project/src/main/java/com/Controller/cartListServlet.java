@@ -17,8 +17,6 @@ import com.user.User;
 import com.item.Item;
 import com.item.ItemDAO;
 import com.tree.Tree;
-import com.userInfo.UserInfo;
-import com.userInfo.UserInfoDAO;
 
 @WebServlet("/Cartlist")
 public class cartListServlet extends HttpServlet {
@@ -28,7 +26,6 @@ public class cartListServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		Cart cart = CartDAO.selectCartByUid(user.getId());
-		UserInfo userInfo = UserInfoDAO.selectUserInfoById(user.getId());
 		List<Item> listItems = new ArrayList<Item>();
 		listItems = ItemDAO.SelectAllUserProducts(cart.getId());
 		List<Tree> listTrees = new ArrayList<Tree>();
@@ -43,8 +40,8 @@ public class cartListServlet extends HttpServlet {
 		req.setAttribute("total", total);
 		req.setAttribute("listTrees", listTrees);
 		req.setAttribute("listItems", listItems);
-		req.setAttribute("userInfo", userInfo);
 		getServletContext().getRequestDispatcher(url).forward(req, resp);
+
 	}
 
 	@Override
