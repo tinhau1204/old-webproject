@@ -90,8 +90,6 @@
                     <button class="loadMore-btn" onclick="loadMoreProducts()">Load More</button>
                 </c:if>
             </div>
-    
-            
         </div>
         </div>
         </div>

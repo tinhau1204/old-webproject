@@ -25,8 +25,7 @@
                         <h2 class="title">Personal Information</h2>
                     </div>
                     <div class="box-body">
-                        <form action="personalInformation" class = "main-content">
-                            
+                        <form action="personalInformation" class="main-content">
                             <div class="line">
                                 <div class="name">First Name</div>
                                 <div class="value">
@@ -80,6 +79,5 @@
                 </div>
             </div>
         </div>
-    
 </body>
 </html>
