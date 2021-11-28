@@ -308,5 +308,7 @@
     color: rgb(3, 141, 141);
 }
 
-input::-webkit-calendar-picker-indicator {
-    opacity: 0;}
+input::-webkit-calendar-picker-indicator 
+{
+    opacity: 0;
+}

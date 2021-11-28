@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="action-container">
-                    <a href="" class="update-container btn-items box">
+                    <a href="productManagement?pid=${p.getTreeid()}&action=goToUpDate" class="update-container btn-items box">
                         <img src="./icon_web/edit-solid.svg" class="update" width="35" height="35">
                     </a>
                     <a href="deleteItem?pid=${p.getTreeid()}" class="delete-container btn-items box" >

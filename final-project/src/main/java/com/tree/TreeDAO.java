@@ -15,7 +15,7 @@ public class TreeDAO {
     {
         try{
             return HibernateUntil.getSessionFacoty().openSession()
-            .createQuery("FROM Tree").getResultList();
+            .createQuery("FROM Tree t ORDER BY t.tId ASC").getResultList();
         }
         catch(Exception e)
         {

@@ -44,8 +44,6 @@ public class ManageProductServlet extends HttpServlet {
        }
        catch(NumberFormatException nfe)
        {
-        
-        System.out.println("not a number"); 
        }
 
        Integer price = 0;
@@ -85,8 +83,71 @@ public class ManageProductServlet extends HttpServlet {
         req.setAttribute("message", message);
         
     }
+    else if(action.equals("goToUpDate"))
+    {
+         url = "/updateProduct.jsp";
+        Integer itemId = null;
+        try
+        {
+            itemId = Integer.parseInt(req.getParameter("pid"));
+        }
+        catch(NumberFormatException nfe)
+        {
 
+        }
+       
+            Tree tree = TreeDAO.selectTreeById(itemId);
+            req.setAttribute("tree", tree);
+    }
+    else if(action.equals("updateItems"))
+    {
+        Integer itemId = null;
+        try
+        {
+            itemId = Integer.parseInt(req.getParameter("itemId"));
+        }
+        catch(NumberFormatException nfe)
+        {
 
+        }
+        String name = req.getParameter("nameAdd");
+        String img = req.getParameter("imageAdd");
+        Integer quality = 0;
+       try{
+         quality =Integer.parseInt(req.getParameter("qualityAdd"));
+       }
+       catch(NumberFormatException nfe)
+       {
+       }
+
+       Integer price = 0;
+       try{
+        price = Integer.parseInt(req.getParameter("PriceAdd"));
+       }
+       catch(NumberFormatException nfe)
+       {
+        
+        System.out.println("not a long number"); 
+       }
+
+       String description = req.getParameter("DescriptionAdd");
+       String kind = req.getParameter("KindAdd");
+       String brand = req.getParameter("BrandAdd");
+       Tree tree = new Tree();
+       tree.setTreeid(itemId);
+       tree.setTreeName(name);
+       tree.setTreeKind(kind);
+       tree.setTreeBrand(brand);
+       tree.setTreeImg(img);
+       tree.setTreeDescription(description);
+       tree.setPrice(price);
+       tree.setAmount(quality);
+       TreeDAO.updateTree(tree);
+       List<Tree> listTrees = new ArrayList<Tree>();
+        listTrees = TreeDAO.SelectAllTree();
+        req.setAttribute("listTrees", listTrees);
+        url = "/productManage.jsp";
+    }
     getServletContext().getRequestDispatcher(url).forward(req, resp);
     }
 

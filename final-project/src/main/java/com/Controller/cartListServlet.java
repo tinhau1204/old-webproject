@@ -37,7 +37,7 @@ public class cartListServlet extends HttpServlet {
                 listTrees.add(tree);
                 total += listItems.get(i).getQuality() * tree.getPrice();
                 i+=1;
-            }
+            } 
             req.setAttribute("total", total);
             req.setAttribute("listTrees", listTrees);
             req.setAttribute("listItems", listItems);
