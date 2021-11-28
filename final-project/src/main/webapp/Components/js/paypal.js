@@ -4,10 +4,28 @@ function initPayPalButton() {
       // Sets up the transaction when a payment button is clicked
       createOrder: function (_, actions) {
         return actions.order.create({
+          intent: "CAPTURE",
+          payer: {
+            name: {
+              given_name: $("#first-name").text(),
+              surname: $("#last-name").text(),
+            },
+            address: {
+              address_line_1: $("#address").text(),
+            },
+            phone: {
+              phone_type: "MOBILE",
+              phone_number: {
+                national_number: $("#phone").text(),
+              },
+            },
+          },
           purchase_units: [
             {
               amount: {
-                value: $("#total-amount").text(), // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                value: String(
+                  parseInt($("#total-amount").text().trim(), 10) / 22_000
+                ),
               },
             },
           ],
@@ -17,8 +35,6 @@ function initPayPalButton() {
       // Finalize the transaction after payer approval
       onApprove: function (_, actions) {
         return actions.order.capture().then(function () {
-          // Successful capture! For dev/demo purposes:
-
           window.location.href = "../thanks.jsp";
         });
       },

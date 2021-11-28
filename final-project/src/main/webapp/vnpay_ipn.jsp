@@ -1,7 +1,11 @@
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
-<%@page import="com.vnpay.Config"%>
 <%@page contentType="application/json; charset=UTF-8"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.vnpay.Config"%>
+<%@page import="com.cart.Cart"%>
+<%@page import="com.cart.CartDAO"%>
+<%@page import="com.user.User"%>
 <%-- 
     Document   : vnpay_ipn(Payment Notify)
     Created on : Sep 29, 2015, 7:23:56 PM
@@ -50,12 +54,18 @@
             if (checkAmount) {
                 if (checkOrderStatus) {
                     if ("00".equals(request.getParameter("vnp_ResponseCode"))) {
+						int id = 0;
+						try {
+							id = Integer.parseInt(request.getParameter("vnp_OrderInfo"));
+						} catch(NumberFormatException e) {
+							System.out.println(e.getMessage());
+						}
+						Cart cart = CartDAO.selectCartByUid(id);
+						CartDAO.updateCheckCart(cart);
+					} else {
 
-                    } else {
-                        //Xu ly thanh toan khong thanh cong
-                        //  out.print("GD Khong thanh cong");
                     }
-                    out.print("{\"RspCode\":\"00\",\"Message\":\"Confirm Success\"}");
+                    out.println("{\"RspCode\":\"00\",\"Message\":\"Confirm Success\"}");
                 } else {
                     //Don hang nay da duoc cap nhat roi, Merchant khong cap nhat nua (Duplicate callback)
                     out.print("{\"RspCode\":\"02\",\"Message\":\"Order already confirmed\"}");

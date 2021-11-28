@@ -16,7 +16,7 @@
             <h1 class="title">Sign Up</h1>
             <form action="register" method="post" class="login-container">
                 <input type="hidden" name="register" value = "register">
-                <input  type="text" name="email" placeholder="Email" class= "box text-box" required/>
+                <input  type="email" name="email" placeholder="Email" class= "box text-box" required/>
                 <input  type="password" name="password" placeholder="Password" class="box text-box" 
 				    oninvalid="this.setCustomValidity('Password must be 8 characters including at least 1 uppercase letter, and numeric characters')"
 				   	oninput="this.setCustomValidity('')"

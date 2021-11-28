@@ -40,7 +40,7 @@ public class loginServlet extends HttpServlet {
 					message = "Wrong email or password please try again";
 				}
 			} else {
-				message = "Wrong emal or password please try again";
+				message = "Wrong email or password please try again";
 
 			}
 			req.setAttribute("message", message);

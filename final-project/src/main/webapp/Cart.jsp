@@ -102,27 +102,28 @@
 					</div>
 					<div class="payment-container">
 						<div class="user-container">
+							<input type="hidden" value="${sessionScope.user.getId()}" id="userId" />
 							<div class="user-line">
 								<div class="input-name">First Name</div>
-								<span class="info"><c:out value="${userInfo.getFirstName()}" /></span>
+								<span class="info" id="first-name"><c:out value="${userInfo.getFirstName()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Last Name</div>
-								<span class="info"><c:out value="${userInfo.getLastName()}" /></span>
+								<span class="info" id="last-name"><c:out value="${userInfo.getLastName()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Phone</div>
-								<span class="info"><c:out value="${userInfo.getPhone()}" /></span>
+								<span class="info" id="phone"><c:out value="${userInfo.getPhone()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Address</div>
-								<span class="info"><c:out value="${userInfo.getaddress()}" /></span>
+								<span class="info" id="address"><c:out value="${userInfo.getaddress()}" /></span>
 							</div>
 						</div>
 						<div class="payment-btn-container">
 							<div class="text">Choose Your Payment Method</div>
 							<div class="button-container">
-								<button  onClick="location.href='./vnpay_index.jsp'" class = "vnpay-btn btn-checkout">VNPAY</button>
+								<button onclick="vnpay()" class="vnpay-btn btn-checkout">VNPAY</button>
 								<div id="paypal-button-container" class="paypal-button-container"></div>
 							</div>
 							<button onclick="cancelPayment()" id="cancel" class="cancel-btn btn-checkout">Cancel</button>
@@ -136,23 +137,46 @@
 		// hide payment
 		$("#payment-overlay").toggle();
 
-		if(parseInt($("#total-amount").text(), 10) === 0) {
+		total = $("#total-amount").text()
+
+		if(parseInt(total, 10) === 0) {
 			$('#checkout-btn').prop('disabled', true);
 		} else {
 		  	// only show if the total amount greater than 0
 			$('#checkout-btn').prop('disabled', false);
 		}
 
-	// toggle payment
-	 $(document).ready(() => {
+		// toggle payment
+		 $(document).ready(() => {
+			showPayment = function() {
+				 $("#payment-overlay").toggle();
+			}
 
-		showPayment = function() {
-			 $("#payment-overlay").toggle();
-		}
+			cancelPayment = function() {
+				 $("#payment-overlay").toggle();
+			}
 
-		cancelPayment = function() {
-			 $("#payment-overlay").toggle();
-		}
-		 });
+			vnpay = function() {
+				let total = $("#total-amount").text().trim()
+				let submitUrl = "vnpayajax";
+				$.ajax({
+				type: "GET",
+				url: submitUrl,
+				data: {
+					amount: total,
+					userId: $("#userId").val(),
+				},
+				dataType: 'JSON',
+				success: function (x) {
+					if (x.code === '00') {
+						location.href=x.data;
+						return false;
+					} else {
+						alert(x.Message);
+					}
+				}
+				});
+			}
+		});
 	</script>
 </html>

@@ -99,7 +99,7 @@
 						<%
 							if (signValue.equals(vnp_SecureHash)) {
 								if ("00".equals(request.getParameter("vnp_TransactionStatus"))) {
-									out.print("Susccess");
+									out.print("Success");
 								} else {
 									out.print("Failed");
 								}

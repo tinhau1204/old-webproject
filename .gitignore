@@ -1,5 +1,10 @@
 .vscode
 ./final-project/target
-./final-project/
 ./final-project/.settings
-./final-project/
+.DS_Store
+./final-project/.DS_Store
+
+final-project/src/main/webapp/Components/.DS_Store
+final-project/src/main/webapp/.DS_Store
+final-project/target
+final-project/src/main/webapp/.DS_Store

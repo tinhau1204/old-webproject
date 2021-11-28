@@ -64,7 +64,6 @@
 					<span>&nbsp; / &nbsp;</span> 
 					<a href="./register.jsp" class="login">SignUp</a>
 				</div>
-
 				</c:otherwise>
 			</c:choose>
 
@@ -94,9 +93,9 @@
 
                     <div class="list-nav mobile">
                         <form action="" class="input-container">
-                            <!-- <input type="text" id="search-header" placeholder="Search" class = "input-search" size="25" oninput="searchProductByName(this)"/>
+                            <input type="text" id="search-header" placeholder="Search" class = "input-search" size="25" oninput="searchProductByName(this)"/>
                             <datalist id = "search-header">
-                            </datalist> -->
+                            </datalist> 
                             <button type="submit" class="search-btn">*</button>
                         </form>
                         <ul class="list-contain moblie">

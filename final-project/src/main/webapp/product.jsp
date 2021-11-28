@@ -98,8 +98,6 @@
                 </div>
                 <button class="loadMore-btn" onclick="loadMoreProducts()">Load More</button>
             </div>
-    
-            
         </div>
         </div>
         </div>
