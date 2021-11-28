@@ -251,4 +251,22 @@ public class TreeDAO {
         }
         return null;
     }
+
+    
+    @SuppressWarnings("unchecked")
+    public static List<Tree> selectTreeByFilter(String query)
+    {
+        
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery(query)
+            .getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

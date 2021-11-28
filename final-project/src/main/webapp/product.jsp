@@ -22,7 +22,7 @@
     <div class="product-container">
         <div class="include">
         <div class="main-board">
-            <form class="type-board">
+            <form action="filter" class="type-board">
                 <div class="plants-title ">
                     <h1 id = "plant-title">Plants</h1>
                 </div>
@@ -31,10 +31,9 @@
                     <div class="filter-title">
                         <h1 class="check-title">TYPE</h1>
                     </div>
-                    
                     <div class="type-lists">
-                        <select class=" fill-type select_type">
-                            <option class="option-box"><c:out value= "${selection}"></c:out> All</option>
+                        <select class=" fill-type select_type" name="type">
+                            <option class="option-box"> All</option>
                             <c:forEach var = "p" items = "${listKinds}" >
                                 <option class="option-box" value="${p}"><c:out value= "${p}"></c:out></option>
                             </c:forEach>
@@ -44,7 +43,7 @@
                     <div class="brand-section check-list ">
                         <div class="filter-title ">
                             <h1 class="check-title">BRAND</h1>
-                            <select class=" fill-type select_brand">
+                            <select class=" fill-type select_brand"  name="brand">
                                 <option class="option-box">All</option>
                                 <c:forEach var = "b" items = "${listBrands}" >
                                     <option class="option-box" value="${b}"><c:out value= "${b}"></c:out></option>
@@ -57,7 +56,7 @@
                                 <button type="submit" class="filter-btn">Filter</button>
                             </div>
                             <form action="" class="filter-container-btn">
-                                <input type="hidden" name="action" value = "filter">
+                                <input type="hidden" name="action" value = "loadProduct">
                                 <button type="submit" class="filter-btn">Clear</button>
                             </form>
                         </div>
@@ -66,15 +65,6 @@
     
             <div class="product-board">
                 <div class="choose-board">
-                    <div class="sort-container">
-                        <label for="sort-by">Sort By</label>
-                        <select name="" id="sort-by" >
-                            <a href="./index.jsp"><option value="popularity">Popularity</option></a>
-                            <option value="newest">Newest</option>
-                            <option value="lowToHigh">Price Low to High</option>
-                            <option value="highToLow">Price High to Low</option>
-                        </select>
-                    </div>
                 </div>
                 <div id="content" class="products-board" >
                     <c:forEach var = "p" items = "${listTrees}" >
@@ -96,7 +86,9 @@
                         </div>
                     </c:forEach>
                 </div>
-                <button class="loadMore-btn" onclick="loadMoreProducts()">Load More</button>
+                <c:if test = "${filtering == null}">
+                    <button class="loadMore-btn" onclick="loadMoreProducts()">Load More</button>
+                </c:if>
             </div>
     
             
