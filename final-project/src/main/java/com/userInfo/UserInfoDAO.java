@@ -9,10 +9,6 @@ import com.data.HibernateUntil;
 
 public class UserInfoDAO 
 {
- 
-
-
-
     public static void updateUserInfo(UserInfo userInfo)
     {
         Transaction transaction = null;
