@@ -90,6 +90,8 @@ public class listProductServlet extends HttpServlet{
                 List<Tree> listSearchByName = TreeDAO.searchTreeByName(searchName);
                 List<String> listKinds = TreeDAO.loadListTreeKinds();
                 List<String>listBrands = TreeDAO.loadListTreeBrands();
+                String filter = "filtering";
+                req.setAttribute("filtering", filter);
                 req.setAttribute("listTrees", listSearchByName);
                 req.setAttribute("listBrands", listBrands);
                 req.setAttribute("listKinds", listKinds);

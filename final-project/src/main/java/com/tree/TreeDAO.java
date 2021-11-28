@@ -15,7 +15,7 @@ public class TreeDAO {
     {
         try{
             return HibernateUntil.getSessionFacoty().openSession()
-            .createQuery("FROM Tree").getResultList();
+            .createQuery("FROM Tree t ORDER BY t.tId ASC").getResultList();
         }
         catch(Exception e)
         {
@@ -243,6 +243,24 @@ public class TreeDAO {
         {
             return HibernateUntil.getSessionFacoty().openSession()
             .createQuery("FROM Tree t WHERE t.treeName LIKE " + name)
+            .getResultList();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    
+    @SuppressWarnings("unchecked")
+    public static List<Tree> selectTreeByFilter(String query)
+    {
+        
+        try(Session session = HibernateUntil.getSessionFacoty().openSession())
+        {
+            return HibernateUntil.getSessionFacoty().openSession()
+            .createQuery(query)
             .getResultList();
         }
         catch(Exception e)
