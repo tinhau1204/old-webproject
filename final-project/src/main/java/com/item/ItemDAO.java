@@ -4,7 +4,6 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-import com.cart.Cart;
 import com.data.HibernateUntil;
 
 public class ItemDAO {

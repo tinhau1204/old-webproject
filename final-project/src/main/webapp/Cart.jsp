@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="./Components/reset.css">
 		<link rel="stylesheet" href="./Components/global.css">
-		<link rel="stylesheet" href="./Components/cart/cart.css">
 		<link rel="stylesheet" href="./Components/Header/nav-pc.css">
 		<link rel="stylesheet" href="./Components/Header/left-nav.css">
+		<link rel="stylesheet" href="./Components/Cart/cart.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="./Components/js/searchProductByName.js"></script>
 		<script src="./Components/js/paypal.js"></script>

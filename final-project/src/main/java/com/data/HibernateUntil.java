@@ -24,9 +24,9 @@ public class HibernateUntil {
 				Properties settings = new Properties();
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 				settings.put(Environment.DRIVER, "org.postgresql.Driver");
-				settings.put(Environment.URL, "jdbc:postgresql://192.168.1.7:5432/postgres");
-				settings.put(Environment.USER, "cpea2506");
-				settings.put(Environment.PASS, "anhvien1");
+				settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/postgres");
+				settings.put(Environment.USER, "postgres");
+				settings.put(Environment.PASS, "2762001T");
 				settings.put(Environment.SHOW_SQL, "true");
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
