@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./Components/global.css">
     <link rel="stylesheet" href="./Components/userinfo/userinfo.css">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <title>Document</title>
+    <title>dinosaur</title>
+    <link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 <body>
     

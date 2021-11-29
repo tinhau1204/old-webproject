@@ -20,6 +20,8 @@ public class Tree implements Serializable {
     private String treeName;
     private String kind;
     private String brand;
+
+    @Column(length = 400)
     private String img;
     private String description;
     private Integer price;

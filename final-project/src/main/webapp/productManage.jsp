@@ -13,7 +13,8 @@
     <script src="./Components/js/searchProductByName.js"></script>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <script type="text/javascript" src="./Components/js/openAddproduct.js"></script>
-    <title>Document</title>
+    <title>dinosaur</title>
+	<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 <body>
     <%@ include file = "./header.jsp"%>

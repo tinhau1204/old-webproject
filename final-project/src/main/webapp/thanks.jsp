@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./Components/global.css" />
     <link rel="stylesheet" href="./Components/footer/footer.css" />
     <link rel="stylesheet" href="./Components/thanks/thanks.css" />
-    <title>Document</title>
+    <title>dinosaur</title>
+		<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
   </head>
   <body>
     <div class="thanks-section">

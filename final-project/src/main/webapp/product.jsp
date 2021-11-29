@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./Components/js/searchProductByName.js"></script>
     <script src="./Components/js/loadMoreProduct.js"></script>
-    <title>Document</title>
+    <title>dinosaur</title>
+	<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 <body>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

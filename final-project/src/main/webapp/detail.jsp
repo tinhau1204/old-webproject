@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="./Components/footer/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./Components/js/searchProductByName.js"></script>
-    <title>Document</title>
+    <title>dinosaur</title>
+    <link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 <body>
 
@@ -31,22 +32,22 @@
                     <h1 class="product-name sale"><c:out value = "${tree.treeName}"/></h1>
                     <span class="price sale"><c:out value = "${tree.price}"/>$</span>
                     <div class="btn-saling sale">
-                        <form action="addToCartDetail" method="get">
+                        <form action="addToCartDetail" method="get" class="btn-container">
                             <input type="hidden" name = "action" value = "addToCart">
                             <input type="hidden" name="itemId" value="${tree.getTreeid()}">
                             <button class="add-to-cart btn-product " type="submit">
                                 ADD TO CART
                             </button>
                         </form>
-                        <form action="addToCartDetail">
+                        <form action="addToCartDetail" class="btn-container">
                             <input type="hidden" name="action" value="buyNow">
                             <input type="hidden" name="itemId" value="${tree.getTreeid()}">
                             <button class="btn-buy-now btn-product" type="submit"> BUY NOW</button>
                         </form>
                     </div>
-                    <span class="product-name sale">Specifications</span>
                 </div>
                 <div class="detail-product">
+                    <span class="product-name sale">Specifications</span>
                     <div class="brand-section detail">
                         <span class="brand title detail-style"> Brand</span>
                         <span class="brand info detail-style"> <c:out value = "${tree.getTreeBrand()}"/></span>
@@ -54,6 +55,10 @@
                     <div class="type-section detail">
                         <spand class="type title detail-style">Type</spand>
                         <span class="type info detail-style"><c:out value = "${tree.getTreeKind()}"/></span>
+                    </div>
+                    <span class="product-name sale">Description</span>
+                    <div class="description-section">
+                        <p class="text-description"><c:out value = "${tree.getTreeDescription()}"/></p>
                     </div>
                 </div>
             </div>

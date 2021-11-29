@@ -177,7 +177,7 @@ public class TreeDAO {
         {
             return HibernateUntil.getSessionFacoty().openSession()
             .createQuery("FROM Tree u WHERE u.amount > 0")
-            .setMaxResults(5).getResultList();
+            .setMaxResults(12).getResultList();
         }
         catch(Exception e)
         {

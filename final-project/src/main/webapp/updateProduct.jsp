@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./Components/reset.css">
     <link rel="stylesheet" href="./Components/global.css">
     <link rel="stylesheet" href="./Components/manager/upDateProduct.css">
-    <title>Document</title>
+    <title>dinosaur</title>
+    <link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 <body>
     <div class="addproduct" id = "openaddproduct" >

@@ -13,7 +13,8 @@
 		<script src="./Components/js/searchProductByName.js"></script>
 		<script src="./Components/js/paypal.js"></script>
 		<script src="https://www.paypal.com/sdk/js?client-id=Ac168FfjHNa-SERjcKvfUyowKz5w5_6q5yc9w7CEU-7PnbgqXalljT3oXhE1dulK63sHHoC90ZXC7As8&currency=USD"></script>
-		<title>Document</title>
+		<title>dinosaur</title>
+		<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 	</head>
 	<body>
 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
