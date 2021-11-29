@@ -20,7 +20,8 @@
     <script type = "text/javascript" src = "./Components/mainpage/slider/script.js"></script>
     <script type="text/javascript" src="./Components/js/slide-img.js"></script>
     <script type="text/javascript" src="./Components/js/searchProductByName.js"></script>
-    <title>Document</title>
+    <title>dinosaur</title>
+		<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 </head>
 
 <body>

@@ -58,9 +58,9 @@ public class HibernateUntil {
 				Properties settings = new Properties();
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 				settings.put(Environment.DRIVER, "org.postgresql.Driver");
-				settings.put(Environment.URL, "jdbc:postgresql://ec2-3-95-130-249.compute-1.amazonaws.com:5432/d8qiirj2ev2u8k");
-				settings.put(Environment.USER, "ltfayypjakbyji");
-				settings.put(Environment.PASS, "e51fbadd2c40d9c783dbf5aadc74c5a7c88eecde5035924b35823204f302d0e1");
+				settings.put(Environment.URL, "jdbc:postgresql://ec2-3-212-168-103.compute-1.amazonaws.com:5432/dcqt8p482d77kd");
+				settings.put(Environment.USER, "xnejbfarxkvsau");
+				settings.put(Environment.PASS, "e6dc387234f6a9a93d912ad588191e58c7559d2b4d204599ee065075b85632ca");
 				settings.put(Environment.SHOW_SQL, "true");
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 				settings.put(Environment.HBM2DDL_AUTO,"update");
