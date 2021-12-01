@@ -39,6 +39,7 @@ public class ajaxServlet extends HttpServlet {
 		int amount = 0;
 		try {
 			amount = Integer.parseInt(req.getParameter("amount")) * 22_000 * 100;
+			System.out.println("amount " + amount);
 		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 		}

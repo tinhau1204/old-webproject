@@ -6,13 +6,6 @@
 <%@page import="com.user.User"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- 
-	Document   : vnpay_return
-	Created on : Sep 29, 2015, 7:23:56 PM
-	Author     : xonv
-	Description: Su dung de thong bao ket qua thanh toan toi khach hang. 
-				 Khong thuc hien cap nhat vao db tai file nay
---%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collections"%>
@@ -60,7 +53,6 @@
 			}
 
 			String signValue = Config.hashAllFields(fields);
-
 		%>
 		<!--Begin display -->
 		<div class="container">
@@ -104,10 +96,13 @@
 									} catch(NumberFormatException e) {
 										System.out.println(e.getMessage());
 									}
+
+									// update purchase to database
 									Cart cart = CartDAO.selectCartByUid(id);
 									CartDAO.updateCheckCart(cart);
 
-									out.print("Success");
+									RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/thanks.jsp");
+									dispatcher.forward(request, response);
 								} else {
 									out.print("Failed");
 								}

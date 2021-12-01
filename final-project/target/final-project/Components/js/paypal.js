@@ -4,38 +4,23 @@ function initPayPalButton() {
       // Sets up the transaction when a payment button is clicked
       createOrder: function (_, actions) {
         return actions.order.create({
-          intent: "CAPTURE",
-          payer: {
-            name: {
-              given_name: $("#first-name").text(),
-              surname: $("#last-name").text(),
-            },
-            address: {
-              address_line_1: $("#address").text(),
-            },
-            phone: {
-              phone_type: "MOBILE",
-              phone_number: {
-                national_number: $("#phone").text(),
-              },
-            },
-          },
           purchase_units: [
             {
               amount: {
-                value: String(
-                  parseInt($("#total-amount").text().trim(), 10) / 22_000
-                ),
+                currency_code: "USD",
+                value: String(parseInt($("#total-amount").text(), 10)),
               },
             },
           ],
         });
       },
-
+      onCancel: function (_) {
+        window.location.href = "../../Cart.jsp";
+      },
       // Finalize the transaction after payer approval
       onApprove: function (_, actions) {
         return actions.order.capture().then(function () {
-          window.location.href = "../thanks.jsp";
+          window.location.href = "../../thanks.jsp";
         });
       },
     })
