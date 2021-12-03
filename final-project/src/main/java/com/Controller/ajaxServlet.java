@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vnpay;
+package com.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -38,7 +38,8 @@ public class ajaxServlet extends HttpServlet {
 
 		int amount = 0;
 		try {
-			amount = Integer.parseInt(req.getParameter("amount")) * 100;
+			amount = Integer.parseInt(req.getParameter("amount")) * 22_000 * 100;
+			System.out.println("amount " + amount);
 		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 		}
@@ -49,7 +50,7 @@ public class ajaxServlet extends HttpServlet {
 		vnp_Params.put("vnp_TmnCode", vnp_TmnCode);
 		vnp_Params.put("vnp_Amount", String.valueOf(amount));
 		vnp_Params.put("vnp_CurrCode", "VND");
-		
+
 		String vnp_OrderInfo = req.getParameter("userId");
 		vnp_Params.put("vnp_OrderInfo", vnp_OrderInfo);
 

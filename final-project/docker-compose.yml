@@ -10,4 +10,3 @@ services:
       - DB_HOST=docker.for.mac.host.internal
     volumes:
       - ./target/final-project.war:/usr/local/tomcat/webapps/ROOT.war
-

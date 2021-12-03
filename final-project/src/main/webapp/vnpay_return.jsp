@@ -1,15 +1,11 @@
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
 <%@page import="com.vnpay.Config"%>
+<%@page import="com.cart.Cart"%>
+<%@page import="com.cart.CartDAO"%>
+<%@page import="com.user.User"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- 
-	Document   : vnpay_return
-	Created on : Sep 29, 2015, 7:23:56 PM
-	Author     : xonv
-	Description: Su dung de thong bao ket qua thanh toan toi khach hang. 
-				 Khong thuc hien cap nhat vao db tai file nay
---%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collections"%>
@@ -57,7 +53,6 @@
 			}
 
 			String signValue = Config.hashAllFields(fields);
-
 		%>
 		<!--Begin display -->
 		<div class="container">
@@ -73,10 +68,6 @@
 					<label >Số tiền:</label>
 					<label><%=request.getParameter("vnp_Amount")%></label>
 				</div>  
-				<div class="form-group">
-					<label >Nội dung thanh toán:</label>
-					<label><%=request.getParameter("vnp_OrderInfo")%></label>
-				</div> 
 				<div class="form-group">
 					<label >Mã phản hồi (vnp_ResponseCode):</label>
 					<label><%=request.getParameter("vnp_ResponseCode")%></label>
@@ -99,7 +90,19 @@
 						<%
 							if (signValue.equals(vnp_SecureHash)) {
 								if ("00".equals(request.getParameter("vnp_TransactionStatus"))) {
-									out.print("Success");
+									int id = 0;
+									try {
+										id = Integer.parseInt(request.getParameter("vnp_OrderInfo"));
+									} catch(NumberFormatException e) {
+										System.out.println(e.getMessage());
+									}
+
+									// update purchase to database
+									Cart cart = CartDAO.selectCartByUid(id);
+									CartDAO.updateCheckCart(cart);
+
+									RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/thanks.jsp");
+									dispatcher.forward(request, response);
 								} else {
 									out.print("Failed");
 								}
