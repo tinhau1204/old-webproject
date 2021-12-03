@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.data.hiddenData;
+
 import com.user.*;
 
 @WebServlet(urlPatterns = "/register")
