@@ -42,8 +42,6 @@
     #bfe9ff 51%,
     #ff6e7f 100%
   );
-}
-.back-to-login-btn {
   margin: 10px;
   width: 50%;
   padding: 10px;
@@ -57,12 +55,14 @@
   border-radius: 10px;
   display: block;
 }
+
 .form-action {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .back-to-login-btn:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;

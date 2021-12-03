@@ -12,7 +12,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="./Components/js/searchProductByName.js"></script>
 		<script src="./Components/js/paypal.js"></script>
-		<script src="https://www.paypal.com/sdk/js?client-id=Ac168FfjHNa-SERjcKvfUyowKz5w5_6q5yc9w7CEU-7PnbgqXalljT3oXhE1dulK63sHHoC90ZXC7As8&currency=USD"></script>
+		<script src="https://www.paypal.com/sdk/js?client-id=Ac168FfjHNa-SERjcKvfUyowKz5w5_6q5yc9w7CEU-7PnbgqXalljT3oXhE1dulK63sHHoC90ZXC7As8"></script>
 		<title>dinosaur</title>
 		<link rel = "icon" href = "./icon_web/2073.jpg" type = "image/x-icon">
 	</head>
@@ -73,7 +73,7 @@
 					<div class="payment-box">
 						<div class="total-items-container content-font">
 							<span class="payment-content payments">Items(s) Total</span>
-							<span class="item-payment payments"><c:out value = "${total}"></c:out></span>
+							<span class="item-payment payments"><c:out value = "${total}"></c:out> $</span>
 						</div>
 						<div class="delivery-container content-font">
 							<span class="payment-content delivery ">Approx. Delivery Charge</span>
@@ -81,7 +81,9 @@
 						</div>
 						<div class=" content-font total-payment-container">
 							<span class="payment-content total-payment">Amount Payable</span>
-							<span id="total-amount" class="item-payment total-payment"> <c:out value = "${total}"></c:out> </span>
+							<span>
+								<span id="total-amount" class="item-payment total-payment"> <c:out value = "${total}"></c:out></span> $  
+							</span>
 						</div>
 						<div class="btn-checkout-container">
 							<c:choose>
@@ -103,22 +105,26 @@
 					</div>
 					<div class="payment-container">
 						<div class="user-container">
-							<input type="hidden" value="${sessionScope.user.getId()}" id="userId" />
+							<input type="hidden" value="${sessionScope.user.getId()}" id="user-id" />
 							<div class="user-line">
 								<div class="input-name">First Name</div>
-								<span class="info" id="first-name"><c:out value="${userInfo.getFirstName()}" /></span>
+								<span class="info" id="first-name"><c:out 
+									value="${userInfo.getFirstName()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Last Name</div>
-								<span class="info" id="last-name"><c:out value="${userInfo.getLastName()}" /></span>
+								<span class="info" id="last-name"><c:out 
+									value="${userInfo.getLastName()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Phone</div>
-								<span class="info" id="phone"><c:out value="${userInfo.getPhone()}" /></span>
+								<span class="info" id="phone"><c:out 
+									value="${userInfo.getPhone()}" /></span>
 							</div>
 							<div class="user-line">
 								<div class="input-name">Address</div>
-								<span class="info" id="address"><c:out value="${userInfo.getaddress()}" /></span>
+								<span class="info" id="address"><c:out 
+									value="${userInfo.getaddress()}" /></span>
 							</div>
 						</div>
 						<div class="payment-btn-container">
@@ -135,49 +141,50 @@
 		</div>
 	</body>
 	<script>
-		// hide payment
+		 // hide payment
 		$("#payment-overlay").toggle();
 
-		total = $("#total-amount").text()
+		let total = $("#total-amount").text();
 
-		if(parseInt(total, 10) === 0) {
-			$('#checkout-btn').prop('disabled', true);
+		if (parseInt(total, 10) === 0) {
+		  $("#checkout-btn").prop("disabled", true);
 		} else {
-		  	// only show if the total amount greater than 0
-			$('#checkout-btn').prop('disabled', false);
+		  // only show if the total amount greater than 0
+		  $("#checkout-btn").prop("disabled", false);
 		}
 
 		// toggle payment
-		 $(document).ready(() => {
-			showPayment = function() {
-				 $("#payment-overlay").toggle();
-			}
+		function showPayment() {
+		  $("#payment-overlay").toggle();
+		}
 
-			cancelPayment = function() {
-				 $("#payment-overlay").toggle();
-			}
+		function cancelPayment() {
+		  $("#payment-overlay").toggle();
+		}
 
-			vnpay = function() {
-				let total = $("#total-amount").text().trim()
-				let submitUrl = "vnpayajax";
-				$.ajax({
-				type: "GET",
-				url: submitUrl,
-				data: {
-					amount: total,
-					userId: $("#userId").val(),
-				},
-				dataType: 'JSON',
-				success: function (x) {
-					if (x.code === '00') {
-						location.href=x.data;
-						return false;
-					} else {
-						alert(x.Message);
-					}
-				}
-				});
-			}
-		});
+		function vnpay() {
+		  let total = $("#total-amount").text().trim();
+		  let submitUrl = "vnpayajax";
+
+		  $.ajax({
+			type: "GET",
+			url: submitUrl,
+			data: {
+			  amount: total,
+			  userId: $("#user-id").val(),
+			},
+			dataType: "JSON",
+			success: function (x) {
+			  if (x.code === "00") {
+				location.href = x.data;
+
+				return false;
+			  } else {
+				alert(x.Message);
+			  }
+			},
+		  });
+		}
+
 	</script>
 </html>

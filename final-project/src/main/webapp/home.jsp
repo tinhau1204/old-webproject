@@ -39,22 +39,22 @@
             <!-- slide img start-->
             <div class="slide first">
             <a href="#">
-                <img src = "./picture/1.jpg" alt="" class = " slide-img">
+                <img src = "https://media.ksdk.com/assets/KSDK/images/1b4c76ab-abbf-4368-85c8-78238a4d472c/1b4c76ab-abbf-4368-85c8-78238a4d472c_1920x1080.jpg" alt="" class = " slide-img">
             </a>
             </div>
             <div class="slide">
                 <a href="#">
-                    <img src="./picture/2.jpg" alt="" class = "slide-img">
+                    <img src="https://www.gardeningknowhow.com/wp-content/uploads/2021/03/bonsai.jpg" alt="" class = "slide-img">
                 </a>
             </div>
             <div class="slide">
                 <a href="#">
-                    <img src="./picture/3.jpg   " alt="" class = "slide-img">
+                    <img src="http://www.ugaoo.com/knowledge-center/wp-content/uploads/2017/03/shutterstock_598347206.jpg" alt="" class = "slide-img">
                 </a>
             </div>
             <div class="slide">
                 <a href="#">
-                    <img src="./picture/4.jpg" alt="" class = "slide-img">
+                    <img src="https://www.ehomeinterior.com/wp-content/uploads/2020/10/pexels-photo-2149105.jpeg" alt="" class = "slide-img">
                 </a>
             </div>
             <!-- slide img end-->
@@ -194,8 +194,6 @@
                 </div>
             </div>
         </a>
-    
-
    
         <a href="#" class="service-link">
             <div class="box-service">
